@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://jdavidleon.github.io/davidleon/
+
+# Sitemaps
+Sitemap: https://jdavidleon.github.io/davidleon/sitemap.xml

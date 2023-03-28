@@ -5,15 +5,11 @@ export interface SocialMediaProps {
 
 export const socialMedia: Array<SocialMediaProps> = [
   {
-    children: 'Instagram',
-    href: 'https://instagram.com/john-doe'
-  },
-  {
-    children: 'Twitter',
-    href: 'https://twitter.com/john-doe'
+    children: 'Github',
+    href: 'https://github.com/jdavidleon'
   },
   {
     children: 'Linkedin',
-    href: 'https://linkedin.com/in/john-doe'
+    href: 'https://www.linkedin.com/in/jes%C3%BAs-david-le%C3%B3n-chito-19a30b250/'
   }
 ]

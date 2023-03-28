@@ -14,9 +14,7 @@ const Footer = () => {
         <FooterLinks data={socialMedia} />
       </section>
       <section className='mt-10'>
-        <p className='text-sm'>
-          &copy; 2022 - {new Date().getFullYear()} {ownwer}
-        </p>
+        <p className='text-sm'>&copy; {ownwer}</p>
       </section>
     </footer>
   )
