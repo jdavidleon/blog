@@ -1,0 +1,116 @@
+---
+featured: true
+title: 'How Build A Simple Neural Network With JavaScript'
+summary: 'Number detection neural network built with JavaScript and BrainJS library.'
+published: '03/26/2023'
+last_modified: '03/26/2023'
+author_name: 'David león'
+author_image: '/static/avatar.jpg'
+tags: ['Machine Learning', 'Programming']
+keywords: ['machine learning', 'javascript', 'neural network']
+---
+
+## Introduction
+
+**First than nothing** to create a neural network, we have to know what it is and how it works, but only what is necessary.
+
+A layer is a set of neurons and a neural network is a set of layers. Neurons normally receive a numeric value as input, process it and deliver the value to the next neuron, this is called "hierarchical knowledge", which means that the information is transmitted from one to another, in this way more complex decisions can be made.
+
+> in this article we will simply create a neural network without delving into its operation, we will only gain intuition of how it works.
+
+## What is needed to create a basic neural network
+
+1. **Data Set** - the connection point with reality.
+2. **Model & Configuration** - crear las capas que definen el modelo y cómo aprenden las neuronas.
+3. **Training** - learning is generated here.
+4. **Test** - the network can be tested and study how much it can improve by changing other types of layers or configurations.
+
+## Let's Create a Number Detector
+
+### 1. Data Set
+
+#### you can use these [template](https://replit.com/@J-DavidDavid3/BrainJS#index.html)
+
+> To our intuition, AI models such as GPT or others. you enter text and reply with text. but the truth is that all models only receive numerical values. Computers can only understand numbers.
+> Games, movies, songs, must be passed numerically. So we must find a way to encode the information in our world in a numerical form.
+
+To transform the text array to a numeric array. Check if the character is `#`, it will be replaced by 1 and if it is `.` for 0.
+
+```js
+function strToNumArr (str) {
+  return str
+    .split('')
+    .filter(charter => /[#.]/.test(charter))
+    .map(charter => charter === '#'? 1 : 0);
+}
+// TRANSFORM
+    .#####.        0111110
+    #.....#        1000001
+    #.....#        1000001
+    #.....#   ->   1000001
+    #.....#        1000001
+    #.....#        1000001
+    .#####.        0111110
+```
+
+The `split()` method gets each character and returns them to an array, the `filter(charter)` method takes only the specified characters, and the `map(function)` method returns a new copy of the array modified by the function
+
+### 2. Model & Configuration
+
+The configuration can be different for each type of model depending on its purpose, although at least it should have. **Loss function**, **learning rate**, **activation function**.
+
+- **Supervised model** refers to when the machine learns the related data between an element and its value e.j: `1 -> one`, `2 -> two`.
+- **Loss function** math function. Calculate how wrong each neuron is.
+- **Learning rate** is how much fast learn the neuralnetwor (when it is too much it can be counterproductive and when it is too low you learn better but very slowly).
+- **Activation function** math function. changes the value returned by the neuron to pass it to the next neuron (allows not to pass a value equal to or greater than 1 to the next neuron. In short, when a neuron is binary it can only have two outputs, `1` or `0`).
+
+We will use the library [BrainJS ](https://github.com/BrainJS/brain.js/), with a supervised learning model.
+
+```js
+const config = {
+  binaryThresh: 0.5,
+  hiddenLayers: [3], // array of ints for the sizes of the hidden layers in the network
+  log: true, // record each iteration of the network
+  activation: 'sigmoid', // supported activation types: ['sigmoid', 'relu', 'leaky-relu', 'tanh']
+  leakyReluAlpha: 0.01 // supported for activation type 'leaky-relu'
+}
+
+const net = new brain.NeuralNetwork()
+```
+
+### 3. Training Model
+
+Training in humans, with more information and amount of reinforcement, can be improved. When neural network returns an incorrect output value. Calculate how much error each neuron has, the more error it has, the greater the change of the neuron.
+
+```js
+net.train(trainingData)
+```
+
+Simply the method `net.train(data)` is in charge of doing the training, the documentation recommends a single training with all the data.
+
+### 4. Testing
+
+**Remember to convert the item input to numbers**, then you can insert data into the network for your prediction.
+
+```js
+const num = strToNumArr(`
+    .#####.
+    #.....#
+    #.....#
+    .#####.
+    ....#..  
+    ...#...
+    ..#....
+`)
+
+const test = net.run(num)
+console.log(test)
+```
+
+The `net.run(array)` method transform the structur then we undertand to structur data the computer can undenrstand. then return the prediction, in this case
+
+## Conclusion
+
+There can be many types of models and configurations, but they all work on this principle. We don't look at how neurons learn, but it is normally used a concept called back propagation (mathematical function that uses the derivative to calculate the amount of error in each neuron).
+
+Now you can experiment with the network settings and see how you can change the prediction.
