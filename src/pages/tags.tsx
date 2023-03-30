@@ -16,12 +16,12 @@ const Tags: NextPage<TagsProps> = ({ tags = [], blogs = [] }) => {
 
   const getClassName = (tagType: string) => {
     const tagColor: Record<string, string> = {
-      hello: 'bg-primary-5 text-white',
-      cat: 'bg-red-500 text-white',
-      world: 'bg-sky-500 text-white',
+      'machine learning': 'bg-primary-5 text-white',
+      'my thoughts': 'bg-red-500 text-white',
+      programming: 'bg-sky-500 text-white',
       foss: 'bg-fuchsia-500 text-white',
-      unfeatured: 'bg-slate-700 text-white',
-      cats: 'bg-pink-500 text-white'
+      cats: 'bg-pink-500 text-white',
+      math: 'bg-slate-700 text-white'
     }
     const defaultColor = 'text-neutral-700 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-800'
 

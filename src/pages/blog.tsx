@@ -11,7 +11,7 @@ import { Blog } from 'next-starter-blog'
 
 const meta = {
   title: 'Blog',
-  description: `I've been writing online since 2020, mostly about data science, machine learning and tech careers. On purpose for documentation while able to share my knowledge. Use the search below to filter by title.`
+  description: `I try to share my knowledge of technology, programming and related subjects, in the simplest way possible. Really understand the fundamentals!.`
 }
 
 interface BlogPageProps {
