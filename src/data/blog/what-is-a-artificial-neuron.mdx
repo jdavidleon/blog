@@ -1,0 +1,63 @@
+---
+featured: true
+title: 'What is An Artificial Neuron'
+summary: 'Understand what an artificial neuron is and how it works.'
+published: '04/03/2023'
+last_modified: '04/03/2023'
+author_name: 'David león'
+author_image: '/static/avatar.jpg'
+tags: ['Machine Learning']
+keywords: ['machine learning', 'neuron', 'neural network']
+---
+
+The artificial neuron is a simplified copy of the functioning of brain neurons. There are different types of neurons and their use may depend on each case but the functioning of each neuron almost is the same.
+
+## How It Work?
+
+Imagine that you want to make the decision to buy a new cell phone.
+To make that decision we can value many things one could.
+
+* __money__ "if you have money, you buy it otherwise not" 
+* __weather__ "If I don't rain I'll go, I can go"
+* __it is necessary__ "I really need it"
+
+According to these possibilities, a decision can be made. You can realize that if you do not have money you will not be able to buy the cell phone. Then we could give a greater importance to this possibility and less to the others.
+Then you can say, if I have no money you wanted not to go buy the cell and give it a greater importance in a numerical way.
+
+Now rename the variables `money to w0`, `weather to w1` and `it is necessary to w2`.
+If we pass these variables to the neuron, it takes them to compare which of the past variables is important or of greater value. And the aria of the following form
+
+If I have the money it will be very likely to go, if the weather is not good you wanted it will not fence, if I feel like it I will possibly go.
+The neuron does something similar, we could do something similar with a mathematical function. `f(Wn): (x0 * w0) + (x1 * w1) + (x2 * w2)`
+
+If we took the time to change the values of the variables w, we could find some variables that take a higher value to the variables with greater importance. but we could automate it with an algorithm called __loss function__. One of them could be. `w0=0.7`, `w1=-0.3`, `w2=0.44`.
+
+In this case we can say in binary variables "0 or 1", if we have the money go "1", if it is raining "0", if I want "1".
+Now we pass those values to the neuron -> `f(Wn): (1*0.7) + (0*-0.3) + (1*0.44)`
+
+We can identify that if we have the money very likely we will go otherwise it will be less likely
+
+> This is called a weighted sum, which is the sum of all multiplied values.
+
+### Bias
+
+Apart from this reasoning the only direction is a variable called bias.
+the only thing it does is add that value.
+
+ej: `b= -0.2`. Now we will add the variable `b`.
+
+`f(wn): (x0*w0) + (x1*w1) + (x2*w2) + b`
+
+These are all types of variables that each of the neurons contains. Finally our neuron with numerical values could be like this
+
+`f(Wn): (1*0.7) + (0*-0.3) + (1*0.44) + (-0.2)`
+
+
+### Activation Function
+
+The only problem would be that if the output value of one neuron is given as input to another neuron, the sum of these will be increasing and may collapse to have only one neuron. 
+
+Allows the output value for each neuron to be transformed, we will use a so-called step function. Transforms the output according to whether the output value is greater than one, returns one, and if the value is less than zero debolbera zero.
+
+In this case it serves us since we need a wine output "1 or 0", "I go or I do not go". Now depending on the data the neuron will change its weights and biases. This is because when the neural network gets an error, it will change its variables depending on how much the error already records.
+
